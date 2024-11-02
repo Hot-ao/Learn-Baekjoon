@@ -1,0 +1,35 @@
+처음 코드를 짤 때에는 come에 대한 인덱스와 비교해서, come[i] 값이 i+1 값과 일치하지 않으면 출력하는 방식으로 만들었음
+근데 29, 30에 대한 수에서 비교할 인덱스가 없어서인지 출석하지 않은 인원이 29 혹은 30일 때 출력이 되지 않는 오류가 생김
+때문에 student라는 정답과, come을 비교해봤는데, #2와 같은 문제가 똑같이 발생하였고, 29, 30에 대해서 예외를 만들어서 처리했음
+
+문제 풀이 후에 구글링 해본 결과, 학생을 값에 넣는 것이 아닌, 인덱스를 학생이라고 생각하고, 해당 값에 1을 넣고, 후에 1이 아닌 인덱스를 출력하는 방식으로 하면 된다는 것을 알았음
+
+====================================================
+import java.util.*;
+
+public class Baekjoon5597 {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int[] student = new int[31];
+		
+		for(int i=1; i<29; i++) {
+			int success = sc.nextInt();
+			student[success] = 1;
+		}
+		for(int i=1; i<student.length; i++) {
+			if(student[i]!=1)
+				System.out.println(i);
+		}
+		
+		
+		sc.close();
+
+	}
+
+}
+
+https://like-a-forest.tistory.com/48
+====================================================
+
+배율을 이용하여 연속된 값을 비교할 때에는 인덱스와 값에 대해서 한 번 더 생각해볼 필요가 있다고 느낌
