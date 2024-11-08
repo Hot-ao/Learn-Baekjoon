@@ -1,0 +1,32 @@
+//문자열과 리스트에 대해서 거의 알고 있지 않았음. 리스트에 대해서 알고 있었다면, 리스트에 a,e,i,o,u 를 넣고, 문장을 반복문에 넣고 돌려서 모음 리스트 안에 있는지 확인하고 count를 늘려갔다면 더 빨랐을 것 같았음.
+//어쨌든, 문장, 모음 배열에 대해서 이중 반복문을 돌려서 확인하기로 함. 처음에 실행시켰을 때 런타임 오류 발생하였고 왜인지 몰랐으나, #을 입력했을 때, 0이 출력되고, 반복문은 멈추지 않았다는 것을 발견.
+//문자열에 대해 조건문을 사용시 같은 문제가 발생하는지 구글링을 하였고, 문자열을 비교할 때에는 str1.equals(str2)를 사용해야한다는 것을 알았음.
+
+import java.util.Scanner;
+
+public class Main{
+	public static void main(String args[]) {
+		Scanner sc = new Scanner(System.in);
+		String sentence = "";
+		char vowel[] = {'a','e','i','o','u'};
+		int count;
+		
+		while(true) {
+			sentence = sc.nextLine();
+***   if (sentence.equals("#")) break;   ***
+			count=0;
+			sentence = sentence.toLowerCase();
+			for (int i=0;i<sentence.length();i++) {
+				char c = sentence.charAt(i);
+				for (char s : vowel) {
+					if(c==s) count++;
+				}
+			}
+			System.out.println(count);
+		}
+		
+	}
+}
+
+
+//배율을 이용하여 연속된 값을 비교할 때에는 인덱스와 값에 대해서 한 번 더 생각해볼 필요가 있다고 느낌
