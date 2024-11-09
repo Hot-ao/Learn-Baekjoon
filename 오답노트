@@ -1,0 +1,26 @@
+Problem 1
+//수를 문자열 형식으로 받을 때, sc.nextLine()을 사용해서 받았는데 계속해서 오류가 발생했음 - 프로그램을 돌리자마자..
+//sc.next()로 바꾸니 해결이 되었음 왜인지를 잘 모르겠음
+Problem 2
+//(int)nums.charAt(i) 만 했을 때 아스키코드를 불러와서 수가 이상하게 됨.
+//해결방법 : (int)(nums.charAt(i)-'0')을 해서 0의 아스키코드를 빼주면 해결 됨.
+
+import java.util.Scanner;
+
+public class Main{
+	public static void main(String args[]) {
+		Scanner sc = new Scanner(System.in);
+		int N = sc.nextInt();
+		String nums = sc.next();
+		int sum=0;
+		
+		for(int i=0;i<N;i++) {
+			sum+=(int)(nums.charAt(i)-'0');
+		}
+		
+		System.out.println(sum);
+	}
+}
+
+//next와 nextLine에 대해서 생각해봐야함.
+//스트링에서 정수열로 변환할 때에는 0의 아스키코드를 빼줘야 한다는 것을 기억해야 함.)
